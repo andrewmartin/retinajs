@@ -7,8 +7,10 @@ require 'coyote/rake'
 task :build do
   FileUtils.mkdir_p "build"
   Coyote.run "src/retina.coffee", "build/retina.js", :compress => true
+  Coyote.run "src/jquery.retina.js", "build/jquery.retina.js", :compress => true  
   FileUtils.mkdir_p "test/functional/public"
   Coyote.run "src/retina.coffee", "test/functional/public/retina.js"
+  Coyote.run "src/jquery.retina.js", "test/functional/public/jquery.retina.js"
 end
 
 coyote :watch do |config|
